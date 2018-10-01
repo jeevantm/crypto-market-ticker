@@ -58,11 +58,11 @@ def wazirx_ticker(data):
 
 
 def build_tweet_body(koinex_inr, wazirx_inr):
-    body = "\nKOINEX\n"
+    body = "\nKOINEX (@koinexindia)\n"
     for kcoin in sorted(koinex_inr):
         body = body + str(kcoin[0]) + "  : " + str(kcoin[1]) + "\n"
 
-    body = body + "\nWAZIRX\n"
+    body = body + "\nWAZIRX (@WazirXIndia)\n"
     for wcoin in sorted(wazirx_inr):
         body = body + str(wcoin[0]) + "  : " + str(wcoin[1]) + "\n"
 
