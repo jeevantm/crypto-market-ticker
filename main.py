@@ -66,6 +66,8 @@ def build_tweet_body(koinex_inr, wazirx_inr):
     for wcoin in sorted(wazirx_inr):
         body = body + str(wcoin[0]) + "  : " + str(wcoin[1]) + "\n"
 
+    body = body + "\n#cryptocurrency #blockchain"
+
     return body
 
 def main():
@@ -78,7 +80,7 @@ def main():
     wazirx_inr = wazirx_ticker(data)
 
     body = build_tweet_body(koinex_inr, wazirx_inr)
-    header = "Market Update in INR\n"
+    header = "\n#Crypto Market Update in INR\n"
 
     tweet = header + body
     api.update_status(tweet)
