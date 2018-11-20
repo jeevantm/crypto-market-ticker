@@ -1,14 +1,8 @@
 {
-  "access_token":"1044972571102449665-2LWxbX0iVLbtXt3FPdR4BvG5dYykGf",
-  "access_token_secret":"AR15rzNvQLGC35RGO5KMICXdB1Hq9OqNLUQKKhLaNz05u",
-
-  "consumer_token":"XKO48JyEQmgyhuVuNyalwMlfA",
-  "consumer_token_secret":"8bZXK4guCdySlUPjvKT04ymCxLo2ML0rOOTkpo9nxReax0mCSK",
-
   "cron" : "@hourly cd /home/jeevantm89/src/crypto-market-ticker && /usr/bin/python /home/jeevantm89/src/crypto-market-ticker/main.py",
 
-  "wazirx_coin_fetch_list":["btc","eth","xrp","eos","trx"],
-  "koinex_coin_fetch_list":["btc","bchabc","bchsv","eth","xrp","eos","trx"]
-
+  "wazirx_coin_fetch_list":["btc","eth","xrp","trx"],
+  "koinex_coin_fetch_list":["btc","bchabc","bchsv","eth","xrp","trx"],
+  "coinmarketcap_coin_fetch_list":"BTC,BCHABC,BCH,ETH,XRP,TRX",
 
 }
