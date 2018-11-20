@@ -23,30 +23,21 @@ def max_value(inputlist):
 def koinex_ticker(data):
     koinex_inr = []
     # koinex_inr_stats = []
-    koinex_coin_fetch_list = data["coin_fetch_list"]
+    koinex_coin_fetch_list = data["koinex_coin_fetch_list"]
 
     result = requests.get('https://koinex.in/api/ticker').json()
 
     inr_prices = result["prices"]["inr"]
-    # inr_stats = result["stats"]["inr"]
 
     for coin in koinex_coin_fetch_list:
         koinex_inr.append([coin.upper(), float(inr_prices[coin.upper()])])
-    #     koinex_inr_stats.append([coin.upper(), float(inr_stats[coin.upper()]["per_change"][:5])])
-    #
-    # maxc = max_value(koinex_inr_stats)
-    #
-    # for coin in koinex_inr_stats:
-    #     if maxc in coin:
-    #         best_returns_coin = coin
-    #         break
 
     return koinex_inr
 
 
 def wazirx_ticker(data):
     wazirx_inr = []
-    wazirx_coin_fetch_list = data["coin_fetch_list"]
+    wazirx_coin_fetch_list = data["wazirx_coin_fetch_list"]
 
     result = requests.get('https://api.wazirx.com/api/v2/tickers').json()
 
@@ -60,11 +51,11 @@ def wazirx_ticker(data):
 def build_tweet_body(koinex_inr, wazirx_inr):
     body = "\nKOINEX (@koinexindia)\n"
     for kcoin in sorted(koinex_inr):
-        body = body + str(kcoin[0]) + "  : " + str(kcoin[1]) + "\n"
+        body = body + str(kcoin[0]) + " : " + str(kcoin[1]) + "\n"
 
     body = body + "\nWAZIRX (@WazirXIndia)\n"
     for wcoin in sorted(wazirx_inr):
-        body = body + str(wcoin[0]) + "  : " + str(wcoin[1]) + "\n"
+        body = body + str(wcoin[0]) + " : " + str(wcoin[1]) + "\n"
 
     body = body + "\n#cryptocurrency #blockchain"
 
@@ -83,6 +74,7 @@ def main():
     header = "\n#Crypto Market Update in INR\n"
 
     tweet = header + body
+
     api.update_status(tweet)
 
 
